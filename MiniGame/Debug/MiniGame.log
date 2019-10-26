@@ -1,0 +1,8 @@
+﻿  main.cpp
+main.obj : error LNK2019: unresolved external symbol _SDL_CreateWindow referenced in function _main
+main.obj : error LNK2019: unresolved external symbol _SDL_Init referenced in function _main
+main.obj : error LNK2019: unresolved external symbol _SDL_Quit referenced in function _main
+E:\Programs\SDL2\lib\x64\SDL2.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+E:\Programs\SDL2\lib\x64\SDL2main.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+E:\Programs\GLEW\lib\Release\x64\glew32.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+E:\Programs\CPP\MiniGame\MiniGame\Debug\MiniGame.exe : fatal error LNK1120: 3 unresolved externals

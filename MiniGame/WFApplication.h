@@ -1,8 +1,6 @@
 #pragma once
 
-#include <SDL.h>
-
-#include "WFGeneralException.h"
+#include "WFWindow.h"
 
 namespace Woaf
 {
@@ -20,6 +18,7 @@ class WFApplication
 private:
 	static WFApplication* instance;
 	bool active;
+	WFWindow* window;
 
 	explicit WFApplication ();
 	~WFApplication ();

@@ -1,7 +1,6 @@
 #pragma once
 
 #include <memory>
-
 #include <SDL.h>
 
 #include "WFGeneralException.h"
@@ -14,18 +13,18 @@ namespace Woaf
 class WFWindowException : public WFGeneralException
 {
 public: 
-	WFWindowException(const std::string& error, size_t line, const char* file) : WFGeneralException(error, line, file) {}
+	WFWindowException (const std::string& error, size_t line, const char* file) : WFGeneralException (error, line, file) {}
 };
 
 
 class WFWindow
 {
 private: 
-	std::unique_ptr<SDL_Window> mainWindow;
+	SDL_Window* mainWindow;
 public: 
-	WFWindow(const std::string&, size_t, size_t);
-	WFWindow(const std::string&, size_t, size_t, size_t, size_t);
-	~WFWindow();
+	WFWindow (const std::string&, size_t, size_t);
+	WFWindow (const std::string&, size_t, size_t, size_t, size_t);
+	~WFWindow ();
 };
 
 }

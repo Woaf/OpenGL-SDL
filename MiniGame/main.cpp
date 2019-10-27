@@ -1,13 +1,12 @@
 #include <iostream>
 #include <gl/glew.h>
-#include <SDL.h>
-#undef main // disabling SLD main function
 
 #include "Application.h"
 
+#undef main // disabling SLD main function (included elsewhere)
 int main()
 {
-	while (Woaf::Application::GetInstance ()->Run ()) {
+	while (Woaf::WFApplication::GetInstance ()->Run ()) {
 		
 	}
 

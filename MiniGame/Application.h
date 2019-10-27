@@ -2,40 +2,30 @@
 
 #include <SDL.h>
 
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <exception>
+#include "GeneralException.h"
 
 namespace Woaf
 {
 
-class GeneralException : public std::runtime_error
-{
-protected:
-public: 
-	explicit GeneralException (const std::string& error, size_t line = __LINE__, const char* file = __FILE__) 
-		: std::runtime_error (error + "\n\tat line: " + std::to_string(line) + "\n\tin file: " + file) {}
-};
-
-class ApplicationException : public Woaf::GeneralException
+class WFApplicationException : public Woaf::WFGeneralException
 {	
 public:
-	explicit ApplicationException (const std::string& error, size_t line = __LINE__, const char* file = __FILE__) 
-		: GeneralException (error, line, file) {}
+	explicit WFApplicationException (const std::string& error, size_t line = __LINE__, const char* file = __FILE__) 
+		: WFGeneralException (error, line, file) {}
 };
 
-class Application
+
+class WFApplication
 {
 private:
-	static Application* instance;
+	static WFApplication* instance;
 	bool active;
 
-	explicit Application ();
-	~Application ();
+	explicit WFApplication ();
+	~WFApplication ();
 
 public:
-	static Application* GetInstance ();
+	static WFApplication* GetInstance ();
 	bool Run ();
 	void Stop ();
 };

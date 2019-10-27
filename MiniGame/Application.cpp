@@ -1,36 +1,36 @@
 #include "Application.h"
 
-Woaf::Application* Woaf::Application::instance = nullptr;
+Woaf::WFApplication* Woaf::WFApplication::instance = nullptr;
 
-Woaf::Application::Application () : active(true) {
+Woaf::WFApplication::WFApplication () : active(true) {
 	try {
 		if (0 != SDL_Init (SDL_INIT_EVERYTHING)) {
-			throw ApplicationException ("SDL initialisation error occured.", __LINE__, __FILE__);
+			throw WFApplicationException ("SDL initialisation error occured.", __LINE__, __FILE__);
 		}
 		else {
 
 		}
 	}
-	catch (ApplicationException& ex) {
+	catch (WFApplicationException& ex) {
 		std::cerr << ex.what () << std::endl;
 	}
 }
 
-Woaf::Application::~Application () {
+Woaf::WFApplication::~WFApplication () {
 
 }
 
-Woaf::Application* Woaf::Application::GetInstance () {
+Woaf::WFApplication* Woaf::WFApplication::GetInstance () {
 	if (nullptr == instance) {
-		instance = new Woaf::Application ();
+		instance = new Woaf::WFApplication ();
 	}
 	return instance;
 }
 
-bool Woaf::Application::Run () {
+bool Woaf::WFApplication::Run () {
 	return active;
 }
 
-void Woaf::Application::Stop () {
+void Woaf::WFApplication::Stop () {
 	active = false;
 }

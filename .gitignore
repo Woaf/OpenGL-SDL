@@ -36,7 +36,9 @@
 *.suo
 *.user
 *.userosscache
+*.sln
 *.sln.docstates
+*/unsuccessfulbuild
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -91,6 +93,7 @@ StyleCopReport.xml
 *.meta
 *.iobj
 *.pdb
+*.ilk
 *.ipdb
 *.pgc
 *.pgd
@@ -106,15 +109,22 @@ StyleCopReport.xml
 *.vspscc
 *.vssscc
 .builds
+*.idb
 *.pidb
 *.svclog
 *.scc
+*.vcxproj
+*.filters
+*.tlog
+*.db
+*.lastbuilstate
 
 # Chutzpah Test files
 _Chutzpah*
 
 # Visual C++ cache files
 ipch/
+*.ipch
 *.aps
 *.ncb
 *.opendb

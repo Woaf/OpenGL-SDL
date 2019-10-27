@@ -21,6 +21,7 @@ private:
 	WFWindow* window;
 
 	explicit WFApplication ();
+	void EventHandler (SDL_Event& event);
 	~WFApplication ();
 
 public:

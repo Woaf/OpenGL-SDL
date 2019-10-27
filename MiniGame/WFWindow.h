@@ -29,6 +29,7 @@ class WFWindow
 private: 
 	SDL_Window* mainWindow;
 	SDL_Renderer* renderer;
+
 public: 
 	WFWindow (const std::string&, size_t, size_t);
 	WFWindow (const std::string&, size_t, size_t, size_t, size_t);

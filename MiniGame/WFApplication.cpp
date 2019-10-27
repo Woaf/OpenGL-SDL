@@ -22,6 +22,23 @@ Woaf::WFApplication::WFApplication () : active (true), window (nullptr) {
 	}
 }
 
+void Woaf::WFApplication::EventHandler (SDL_Event& event) {
+	while (SDL_PollEvent(&event)) {
+		switch (event.type) {
+			case SDL_QUIT:
+			Stop();
+			break;
+			case SDL_KEYDOWN:
+			switch (event.key.keysym.sym) {
+				case SDLK_ESCAPE:
+				Stop();
+				break;
+			}
+			break;
+		}
+	}
+}
+
 Woaf::WFApplication::~WFApplication () {
 	SDL_Quit ();
 }
@@ -36,20 +53,7 @@ Woaf::WFApplication* Woaf::WFApplication::GetInstance () {
 bool Woaf::WFApplication::Run () {
 	if (active) {
 		SDL_Event event;
-		while (SDL_PollEvent (&event)) {
-			switch (event.type) {
-				case SDL_QUIT:  
-				Stop ();
-				break;
-				case SDL_KEYDOWN:
-				switch (event.key.keysym.sym) {
-					case SDLK_ESCAPE: 
-					Stop ();
-					break;
-				}
-				break;
-			}
-		}
+		EventHandler (event);
 	}
 	return active;
 }

@@ -2,7 +2,7 @@
 
 #include <SDL.h>
 
-#include "GeneralException.h"
+#include "WFGeneralException.h"
 
 namespace Woaf
 {

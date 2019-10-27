@@ -1,7 +1,7 @@
 #include <iostream>
 #include <gl/glew.h>
 
-#include "Application.h"
+#include "WFApplication.h"
 
 #undef main // disabling SLD main function (included elsewhere)
 int main()

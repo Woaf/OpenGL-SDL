@@ -1,4 +1,4 @@
-#include "Application.h"
+#include "WFApplication.h"
 
 Woaf::WFApplication* Woaf::WFApplication::instance = nullptr;
 

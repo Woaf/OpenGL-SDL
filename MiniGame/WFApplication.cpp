@@ -17,7 +17,7 @@ Woaf::WFApplication::WFApplication () : active (true), window (nullptr) {
 	catch (WFWindowException& ex) {
 		std::cerr << ex.what () << std::endl;
 	}
-	catch (WFRendererException & ex) {
+	catch (WFRendererException& ex) {
 		std::cerr << ex.what () << std::endl;
 	}
 }
@@ -37,9 +37,16 @@ bool Woaf::WFApplication::Run () {
 	if (active) {
 		SDL_Event event;
 		while (SDL_PollEvent (&event)) {
-			switch (event.key.keysym.sym) {
-				case (SDLK_ESCAPE):  
+			switch (event.type) {
+				case SDL_QUIT:  
 				Stop ();
+				break;
+				case SDL_KEYDOWN:
+				switch (event.key.keysym.sym) {
+					case SDLK_ESCAPE: 
+					Stop ();
+					break;
+				}
 				break;
 			}
 		}

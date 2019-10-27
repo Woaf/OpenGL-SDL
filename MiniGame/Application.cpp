@@ -1,26 +1,26 @@
 #include "Application.h"
 
-Application* Application::instance = nullptr;
+Woaf::Application* Woaf::Application::instance = nullptr;
 
-Application::Application() : active(true) {
-
-}
-
-Application::~Application() {
+Woaf::Application::Application() : active(true) {
 
 }
 
-Application* Application::GetInstance() {
+Woaf::Application::~Application() {
+
+}
+
+Woaf::Application* Woaf::Application::GetInstance() {
 	if (nullptr == instance) {
-		instance = new Application();
+		instance = new Woaf::Application();
 	}
 	return instance;
 }
 
-bool Application::Run() {
+bool Woaf::Application::Run() {
 	return active;
 }
 
-void Application::Stop() {
+void Woaf::Application::Stop() {
 	active = false;
 }

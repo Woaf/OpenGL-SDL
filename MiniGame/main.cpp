@@ -7,7 +7,7 @@
 
 int main()
 {
-	while (Application::GetInstance ()->Run ()) {
+	while (Woaf::Application::GetInstance ()->Run ()) {
 		
 	}
 

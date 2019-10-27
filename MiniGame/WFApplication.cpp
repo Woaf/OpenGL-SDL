@@ -17,6 +17,9 @@ Woaf::WFApplication::WFApplication () : active (true), window (nullptr) {
 	catch (WFWindowException& ex) {
 		std::cerr << ex.what () << std::endl;
 	}
+	catch (WFRendererException & ex) {
+		std::cerr << ex.what () << std::endl;
+	}
 }
 
 Woaf::WFApplication::~WFApplication () {

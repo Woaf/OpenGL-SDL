@@ -7,9 +7,8 @@
 
 int main()
 {
-	while (Application::GetInstance()->Run())
-	{
-
+	while (Application::GetInstance ()->Run ()) {
+		
 	}
 
 	return 0;

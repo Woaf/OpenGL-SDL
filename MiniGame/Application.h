@@ -1,28 +1,19 @@
 #pragma once
-#include "Window.h"
-#include "GameState.h"
 
-class ApplicationException : public std::runtime_error
+#include <SDL.h>
+
+class Application
 {
-public: 
-	ApplicationException (const std::string& error) : std::runtime_error (error) {}
-};
-
-class Application {
 private: 
-	Application ();
-	~Application ();
-	static Application* applicationInstance;
-	bool active = true;
-	Window* window;
-	GameState* state;
+	static Application* instance;
+	bool active;
+
+	explicit Application();
+	~Application();
 
 public: 
-	static Application* GetInstance ();
-
-	bool Run ();
-	void Stop ();
-
-	template <class T>
-	void SetState();
+	static Application* GetInstance();
+	bool Run();
+	void Stop();
 };
+

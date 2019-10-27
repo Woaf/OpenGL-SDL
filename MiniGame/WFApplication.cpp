@@ -2,13 +2,13 @@
 
 Woaf::WFApplication* Woaf::WFApplication::instance = nullptr;
 
-Woaf::WFApplication::WFApplication () : active (true) {
+Woaf::WFApplication::WFApplication () : active (true), window (nullptr) {
 	try {
 		if (0 != SDL_Init (SDL_INIT_EVERYTHING)) {
 			throw WFApplicationException ("SDL initialisation error occured.", __LINE__, __FILE__);
 		}
 		else {
-			window = new WFWindow("My first SDL window", 720, 480);
+			window = new WFWindow ("My first SDL window", 720, 480);
 		}
 	}
 	catch (WFApplicationException& ex) {
@@ -20,7 +20,7 @@ Woaf::WFApplication::WFApplication () : active (true) {
 }
 
 Woaf::WFApplication::~WFApplication () {
-	SDL_Quit();
+	SDL_Quit ();
 }
 
 Woaf::WFApplication* Woaf::WFApplication::GetInstance () {
@@ -31,6 +31,16 @@ Woaf::WFApplication* Woaf::WFApplication::GetInstance () {
 }
 
 bool Woaf::WFApplication::Run () {
+	if (active) {
+		SDL_Event event;
+		while (SDL_PollEvent (&event)) {
+			switch (event.key.keysym.sym) {
+				case (SDLK_ESCAPE):  
+				Stop ();
+				break;
+			}
+		}
+	}
 	return active;
 }
 

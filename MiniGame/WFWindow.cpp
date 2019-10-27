@@ -20,4 +20,5 @@ Woaf::WFWindow::WFWindow (const std::string& title, size_t x, size_t y, size_t w
 }
 
 Woaf::WFWindow::~WFWindow () {
+	SDL_DestroyWindow (mainWindow);
 }
